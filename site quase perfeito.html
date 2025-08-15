@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABISMO AZUL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<style>
+:root {
+    --primary-color: #080808;
+    --secondary-color: #00b4d8;
+    --accent-color: #90e0ef;
+    --text-color: #caf0f8;
+    --bg-color: #03045e;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1439405326853-58f2724f795b?w=1200&h=800&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: blur(3px) brightness(0.7);
+    z-index: -1;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8em;
+    margin: 0;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+nav .nav-button {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--accent-color);
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+nav .nav-button:hover, nav .nav-button.active {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+main {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.content-wrapper {
+    max-width: 900px;
+    width: 100%;
+}
+
+.content-section {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-section h2 {
+    margin-top: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--accent-color);
+    font-size: 2.2em;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.content-section p {
+    font-size: 1.1em;
+    line-height: 1.7;
+}
+
+.content-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+/* (Mantenha todo o CSS anterior) */
+
+/* Adicione este código ao final do seu arquivo style.css */
+
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Espaçamento entre as imagens */
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.image-gallery img {
+    width: 100%;
+    max-width: 250px; /* Largura máxima para cada imagem */
+    height: 180px; /* Altura fixa para manter a uniformidade */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+    border-radius: 10px;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+    box-shadow: 0 8px 25px rgba(0, 180, 216, 0.5);
+}
+/* (Mantenha todo o CSS anterior e das galerias) */
+
+/* Adicione este código ao final do seu arquivo style.css */
+
+.editor-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.editor-panel label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    color: var(--accent-color);
+}
+
+.editor-panel select, .editor-panel textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.editor-panel select {
+    cursor: pointer;
+}
+
+.editor-panel textarea {
+    resize: vertical;
+}
+
+#save-button {
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start; /* Alinha o botão à esquerda */
+}
+
+#save-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#save-status {
+    margin-top: 10px;
+    color: var(--accent-color);
+    font-weight: bold;
+    min-height: 20px;
+}
+/* (Mantenha todo o CSS anterior) */
+
+/* Adicione/Modifique estas regras no seu arquivo style.css */
+
+.editor-divider {
+    border: none;
+    border-top: 1px solid var(--secondary-color);
+    margin: 25px 0;
+}
+
+/* Estilo para o input de arquivo */
+#image-uploader {
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--secondary-color);
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+#image-uploader::file-selector-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#image-uploader::file-selector-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Botões de Ação */
+#save-text-button, #add-image-button {
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+#save-text-button:hover, #add-image-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#status-message {
+    margin-top: 10px;
+    color: var(--accent-color);
+    font-weight: bold;
+    min-height: 20px;
+}
+
+/* Estilos da Galeria Dinâmica */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.gallery-item {
+    position: relative;
+    width: 250px;
+    height: 180px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.remove-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .remove-btn {
+    opacity: 1;
+}
+/* (Mantenha todo o CSS anterior) */
+
+/* Adicione/Modifique estas regras no seu arquivo style.css */
+
+.management-group {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.management-group h3 {
+    margin-top: 0;
+    color: var(--secondary-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+#new-topic-name, #rename-topic-input {
+    width: calc(100% - 24px);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+#create-topic-button, .topic-item-actions button {
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+#create-topic-button:hover {
+     background-color: var(--secondary-color);
+}
+
+#existing-topics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.topic-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.topic-item-actions button {
+    margin-left: 8px;
+    font-size: 0.9em;
+    padding: 8px 15px;
+}
+
+.topic-item-actions .delete-btn {
+    background-color: #c0392b;
+}
+.topic-item-actions .delete-btn:hover {
+    background-color: #e74c3c;
+}
+
+/* Estilos para o Modal de Edição (dialog) */
+#rename-modal {
+    background: rgba(3, 4, 94, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--secondary-color);
+    border-radius: 15px;
+    color: var(--text-color);
+    padding: 25px;
+    width: 400px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+#rename-modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#rename-modal h3 {
+    margin-top: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+#cancel-rename-button {
+    background-color: #7f8c8d;
+    color: white;
+}
+#confirm-rename-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+/* --- CSS RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #0077b6;
+    --secondary-color: #00b4d8;
+    --accent-color: #90e0ef;
+    --text-color: #caf0f8;
+    --bg-color: #03045e;
+    --danger-color: #e74c3c;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.background-container {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover; background-position: center; background-attachment: fixed;
+    filter: blur(3px) brightness(0.7);
+    z-index: -1;
+    transition: background-image 0.5s ease-in-out;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px);
+    padding: 1rem 2rem; display: flex;
+    justify-content: space-between; align-items: center;
+    position: sticky; top: 0;
+    z-index: 999;
+}
+
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo h1 { font-family: 'Poppins', sans-serif; font-size: 1.8em; }
+nav { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.nav-button {
+    background-color: transparent; color: var(--text-color);
+    border: 2px solid var(--accent-color); padding: 10px 20px;
+    cursor: pointer; font-size: 1em;
+    font-family: 'Poppins', sans-serif; border-radius: 50px;
+    transition: all 0.3s ease;
+}
+.nav-button:hover, .nav-button.active {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    transform: translateY(-3px);
+}
+.nav-button[data-content="gerenciar"] {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.nav-button[data-content="gerenciar"]:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+main { padding: 2rem; }
+.content-wrapper { max-width: 900px; margin: 0 auto; }
+.content-section {
+    overflow: auto; background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px); padding: 2.5rem;
+    border-radius: 20px; margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.management-group {
+    background: rgba(0, 0, 0, 0.2); padding: 20px;
+    border-radius: 10px; margin-bottom: 20px;
+}
+.management-group h3 { margin-top: 0; margin-bottom: 15px; color: var(--secondary-color); }
+.management-group hr { border: none; border-top: 1px solid rgba(255,255,255,0.2); margin: 20px 0; }
+
+input, textarea, select, button { font-family: inherit; }
+input[type="text"], input[type="url"], textarea, select {
+    width: 100%; padding: 12px; border-radius: 8px;
+    border: 1px solid var(--secondary-color);
+    background-color: rgba(0, 0, 0, 0.3); color: var(--text-color);
+    font-size: 1em; margin-top: 5px;
+}
+.management-group button {
+    border: none; padding: 10px 20px; border-radius: 50px;
+    background-color: var(--primary-color); color: white;
+    margin-top: 10px; transition: background-color 0.3s; cursor: pointer;
+}
+.management-group button:hover { background-color: var(--secondary-color); }
+.delete-btn { background-color: var(--danger-color) !important; }
+#reset-background-btn { background-color: #556270; }
+
+figure {
+    margin: 10px 0 20px 0; padding: 5px; border: 2px solid var(--accent-color);
+    border-radius: 10px; background: rgba(255, 255, 255, 0.1); position: relative;
+}
+figure img { width: 100%; display: block; border-radius: 6px; }
+figure figcaption { padding: 10px; text-align: center; font-style: italic; color: var(--accent-color); }
+.remove-btn {
+    position: absolute; top: 10px; right: 10px; background-color: var(--danger-color);
+    color: white; border: none; border-radius: 50%; width: 28px; height: 28px;
+    opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+figure:hover .remove-btn { opacity: 1; }
+
+.img-align-center { max-width: 90%; margin-left: auto; margin-right: auto; }
+.img-align-left { float: left; max-width: 45%; margin-right: 20px; margin-bottom: 10px; }
+.img-align-right { float: right; max-width: 45%; margin-left: 20px; margin-bottom: 10px; }
+
+dialog { background: #02044a; border: 1px solid var(--secondary-color); border-radius: 15px; color: var(--text-color); padding: 25px; }
+dialog::backdrop { background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px); }
+.modal-actions { margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px; }
+/* --- CSS RESET E VARIÁVEIS GLOBAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #0077b6;
+    --secondary-color: #00b4d8;
+    --accent-color: #90e0ef;
+    --text-color: #caf0f8;
+    --bg-color: #03045e;
+    --danger-color: #e74c3c;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* --- ELEMENTOS DE BASE E LAYOUT --- */
+.background-container {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover; background-position: center; background-attachment: fixed;
+    filter: blur(3px) brightness(0.7);
+    z-index: -1;
+    transition: background-image 0.5s ease-in-out;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px);
+    padding: 1rem 2rem; display: flex;
+    justify-content: space-between; align-items: center;
+    position: sticky; top: 0;
+    z-index: 999;
+}
+
+main { padding: 2rem; }
+.content-wrapper { max-width: 900px; margin: 0 auto; }
+.content-section {
+    overflow: auto; background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px); padding: 2.5rem;
+    border-radius: 20px; margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- CABEÇALHO E NAVEGAÇÃO --- */
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo h1 { font-family: 'Poppins', sans-serif; font-size: 1.8em; }
+nav { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.nav-button {
+    background-color: transparent; color: var(--text-color);
+    border: 2px solid var(--accent-color); padding: 10px 20px;
+    cursor: pointer; font-size: 1em;
+    font-family: 'Poppins', sans-serif; border-radius: 50px;
+    transition: all 0.3s ease;
+}
+.nav-button:hover, .nav-button.active {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    transform: translateY(-3px);
+}
+.nav-button[data-content="gerenciar"] {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.nav-button[data-content="gerenciar"]:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* --- PAINEL DE GERENCIAMENTO --- */
+.management-group {
+    background: rgba(0, 0, 0, 0.2); padding: 20px;
+    border-radius: 10px; margin-bottom: 20px;
+}
+.management-group h3 { margin-top: 0; margin-bottom: 15px; color: var(--secondary-color); }
+.management-group hr { border: none; border-top: 1px solid rgba(255,255,255,0.2); margin: 20px 0; }
+
+input, textarea, select, button { font-family: inherit; }
+input[type="text"], input[type="url"], textarea, select {
+    width: 100%; padding: 12px; border-radius: 8px;
+    border: 1px solid var(--secondary-color);
+    background-color: rgba(0, 0, 0, 0.3); color: var(--text-color);
+    font-size: 1em; margin-top: 5px;
+}
+.management-group button {
+    border: none; padding: 10px 20px; border-radius: 50px;
+    background-color: var(--primary-color); color: white;
+    margin-top: 10px; transition: background-color 0.3s; cursor: pointer;
+}
+.management-group button:hover { background-color: var(--secondary-color); }
+.delete-btn { background-color: var(--danger-color) !important; }
+#reset-background-btn { background-color: #556270; }
+
+#existing-topics-list { margin-top: 15px; display: flex; flex-direction: column; gap: 10px; }
+.topic-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 5px;}
+.topic-item-actions button { margin-left: 8px; font-size: 0.9em; padding: 8px 15px; }
+
+/* --- GALERIA DE IMAGENS --- */
+figure {
+    margin: 10px 0 20px 0; padding: 5px; border: 2px solid var(--accent-color);
+    border-radius: 10px; background: rgba(255, 255, 255, 0.1); position: relative;
+}
+figure img { width: 100%; display: block; border-radius: 6px; }
+figure figcaption { padding: 10px; text-align: center; font-style: italic; color: var(--accent-color); }
+.remove-btn {
+    position: absolute; top: 10px; right: 10px; background-color: var(--danger-color);
+    color: white; border: none; border-radius: 50%; width: 28px; height: 28px;
+    opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+figure:hover .remove-btn { opacity: 1; }
+
+.img-align-center { max-width: 90%; margin-left: auto; margin-right: auto; }
+.img-align-left { float: left; max-width: 45%; margin-right: 20px; margin-bottom: 10px; }
+.img-align-right { float: right; max-width: 45%; margin-left: 20px; margin-bottom: 10px; }
+
+/* --- MODAL (dialog) --- */
+dialog { background: #02044a; border: 1px solid var(--secondary-color); border-radius: 15px; color: var(--text-color); padding: 25px; }
+dialog::backdrop { background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px); }
+.modal-actions { margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px; }
+
+
+/* --- NOVO: ESTILOS PARA LINKS DA PÁGINA INICIAL --- */
+#p-home h4 {
+    margin-top: 30px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--accent-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+}
+
+.home-links-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.home-topic-link {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.home-topic-link:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+/* --- CSS RESET E VARIÁVEIS GLOBAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #0077b6;
+    --secondary-color: #00b4d8;
+    --accent-color: #90e0ef;
+    --text-color: #caf0f8;
+    --bg-color: #03045e;
+    --danger-color: #e74c3c;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* --- ELEMENTOS DE BASE E LAYOUT --- */
+.background-container {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover; background-position: center; background-attachment: fixed;
+    filter: blur(3px) brightness(0.7);
+    z-index: -1;
+    transition: background-image 0.5s ease-in-out;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px);
+    padding: 1rem 2rem; display: flex;
+    justify-content: space-between; align-items: center;
+    position: sticky; top: 0;
+    z-index: 999;
+}
+
+main { padding: 2rem; }
+.content-wrapper { max-width: 900px; margin: 0 auto; }
+.content-section {
+    overflow: auto; background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px); padding: 2.5rem;
+    border-radius: 20px; margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- CABEÇALHO E NAVEGAÇÃO --- */
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo h1 { font-family: 'Poppins', sans-serif; font-size: 1.8em; }
+nav { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.nav-button {
+    background-color: transparent; color: var(--text-color);
+    border: 2px solid var(--accent-color); padding: 10px 20px;
+    cursor: pointer; font-size: 1em;
+    font-family: 'Poppins', sans-serif; border-radius: 50px;
+    transition: all 0.3s ease;
+}
+.nav-button:hover, .nav-button.active {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    transform: translateY(-3px);
+}
+.nav-button[data-content="gerenciar"] {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.nav-button[data-content="gerenciar"]:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* --- PAINEL DE GERENCIAMENTO --- */
+.management-group {
+    background: rgba(0, 0, 0, 0.2); padding: 20px;
+    border-radius: 10px; margin-bottom: 20px;
+}
+.management-group h3 { margin-top: 0; margin-bottom: 15px; color: var(--secondary-color); }
+.management-group hr { border: none; border-top: 1px solid rgba(255,255,255,0.2); margin: 20px 0; }
+
+input, textarea, select, button { font-family: inherit; }
+input[type="text"], input[type="url"], textarea, select {
+    width: 100%; padding: 12px; border-radius: 8px;
+    border: 1px solid var(--secondary-color);
+    background-color: rgba(0, 0, 0, 0.3); color: var(--text-color);
+    font-size: 1em; margin-top: 5px;
+}
+.management-group button {
+    border: none; padding: 10px 20px; border-radius: 50px;
+    background-color: var(--primary-color); color: white;
+    margin-top: 10px; transition: background-color 0.3s; cursor: pointer;
+}
+.management-group button:hover { background-color: var(--secondary-color); }
+.delete-btn { background-color: var(--danger-color) !important; }
+#reset-background-btn { background-color: #556270; }
+
+#existing-topics-list { margin-top: 15px; display: flex; flex-direction: column; gap: 10px; }
+.topic-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 5px;}
+.topic-item-actions button { margin-left: 8px; font-size: 0.9em; padding: 8px 15px; }
+
+/* --- GALERIA DE IMAGENS --- */
+figure {
+    margin: 10px 0 20px 0; padding: 5px; border: 2px solid var(--accent-color);
+    border-radius: 10px; background: rgba(255, 255, 255, 0.1); position: relative;
+}
+figure img { width: 100%; display: block; border-radius: 6px; }
+figure figcaption { padding: 10px; text-align: center; font-style: italic; color: var(--accent-color); }
+.remove-btn {
+    position: absolute; top: 10px; right: 10px; background-color: var(--danger-color);
+    color: white; border: none; border-radius: 50%; width: 28px; height: 28px;
+    opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+figure:hover .remove-btn { opacity: 1; }
+
+.img-align-center { max-width: 90%; margin-left: auto; margin-right: auto; }
+.img-align-left { float: left; max-width: 45%; margin-right: 20px; margin-bottom: 10px; }
+.img-align-right { float: right; max-width: 45%; margin-left: 20px; margin-bottom: 10px; }
+
+/* --- MODAL (dialog) --- */
+dialog { background: #02044a; border: 1px solid var(--secondary-color); border-radius: 15px; color: var(--text-color); padding: 25px; }
+dialog::backdrop { background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px); }
+.modal-actions { margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px; }
+
+
+/* --- NOVO: ESTILOS PARA LINKS DA PÁGINA INICIAL --- */
+#p-home h4 {
+    margin-top: 30px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--accent-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+}
+
+.home-links-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.home-topic-link {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.home-topic-link:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+</style>
+</head>
+<body>
+
+    <div class="background-container"></div>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-water"></i>
+            <h1 id="site-main-title">ABISMO AZUL</h1>
+        </div>
+        <nav id="main-nav">
+            <!-- Botões serão gerados aqui -->
+        </nav>
+    </header>
+
+    <main id="content-area">
+        <div class="content-wrapper" id="content-wrapper">
+            <!-- Seções de conteúdo serão geradas aqui -->
+            <section class="content-section" id="gerenciar-content" style="display: none;">
+                <h2>Painel de Gerenciamento</h2>
+                <div class="management-group">
+                    <h3>Configurações Gerais</h3>
+                    <input type="text" id="site-title-input" placeholder="Título do Site">
+                    <button id="save-site-title-btn">Salvar Título</button>
+                    <hr>
+                    <input type="url" id="background-url-input" placeholder="URL da Imagem de Fundo">
+                    <button id="save-background-btn">Salvar Fundo</button>
+                    <button id="reset-background-btn">Fundo Padrão</button>
+                </div>
+                
+                <div class="management-group">
+                    <h3>Gerenciar Tópicos</h3>
+                    <input type="text" id="new-topic-name" placeholder="Nome do Novo Tópico">
+                    <button id="create-topic-button">Criar Tópico</button>
+                    <div id="existing-topics-list"></div>
+                </div>
+                
+                <div class="management-group">
+                    <h3>Editar Conteúdo do Tópico</h3>
+                    <div class="editor-panel">
+                        <select id="topic-selector"></select>
+                        <textarea id="content-editor" rows="10"></textarea>
+                        <button id="save-text-button">Salvar Texto</button>
+                        <hr>
+                        <label>Adicionar nova imagem:</label>
+                        <input type="file" id="image-uploader" accept="image/*">
+                        <input type="text" id="image-caption-input" placeholder="Legenda da imagem (opcional)">
+                        <select id="image-align-select">
+                            <option value="center">Alinhar ao Centro</option>
+                            <option value="left">Alinhar à Esquerda</option>
+                            <option value="right">Alinhar à Direita</option>
+                        </select>
+                        <button id="add-image-button">Adicionar Imagem</button>
+                        <p id="status-message"></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <dialog id="rename-modal">
+        <h3>Renomear Tópico</h3>
+        <input type="text" id="rename-topic-input">
+        <div class="modal-actions">
+            <button id="cancel-rename-button">Cancelar</button>
+            <button id="confirm-rename-button">Salvar</button>
+        </div>
+    </dialog>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. SELETORES DE ELEMENTOS DO DOM
+    // Centraliza todos os elementos da página em um único objeto para fácil acesso e manutenção.
+    const dom = {
+        mainNav: document.getElementById('main-nav'),
+        contentWrapper: document.getElementById('content-wrapper'),
+        manageContentSection: document.getElementById('gerenciar-content'),
+        siteMainTitle: document.getElementById('site-main-title'),
+        siteTitleInput: document.getElementById('site-title-input'),
+        saveSiteTitleBtn: document.getElementById('save-site-title-btn'),
+        backgroundUrlInput: document.getElementById('background-url-input'),
+        saveBackgroundBtn: document.getElementById('save-background-btn'),
+        resetBackgroundBtn: document.getElementById('reset-background-btn'),
+        backgroundContainer: document.querySelector('.background-container'),
+        newTopicNameInput: document.getElementById('new-topic-name'),
+        createTopicButton: document.getElementById('create-topic-button'),
+        existingTopicsList: document.getElementById('existing-topics-list'),
+        topicSelector: document.getElementById('topic-selector'),
+        contentEditor: document.getElementById('content-editor'),
+        saveTextButton: document.getElementById('save-text-button'),
+        imageUploader: document.getElementById('image-uploader'),
+        imageCaptionInput: document.getElementById('image-caption-input'),
+        imageAlignSelect: document.getElementById('image-align-select'),
+        addImageButton: document.getElementById('add-image-button'),
+        statusMessage: document.getElementById('status-message'),
+        renameModal: document.getElementById('rename-modal'),
+        renameInput: document.getElementById('rename-topic-input'),
+        cancelRenameBtn: document.getElementById('cancel-rename-button'),
+        confirmRenameBtn: document.getElementById('confirm-rename-button')
+    };
+    const defaultBackground = 'url("https://i.pinimg.com/736x/65/83/19/658319826413615941d314163a19537b.jpg")';
+    let currentTopicToRename = null; // Variável para guardar o tópico que está sendo renomeado
+
+    // 2. FUNÇÕES DE DADOS (GERENCIAMENTO DO localStorage)
+    // Funções que leem e escrevem os dados do site no armazenamento local do navegador.
+
+    const getSiteSettings = () => JSON.parse(localStorage.getItem('siteSettings')) || { title: 'ABISMO AZUL', background: defaultBackground };
+    const saveSiteSettings = (settings) => localStorage.setItem('siteSettings', JSON.stringify(settings));
+
+    const getTopicList = () => JSON.parse(localStorage.getItem('topicList')) || ['home','animais','corais','baleia','golfinho','tartaruga','lagosta','tubarao','peixes','crustaceos','moluscos'];
+    const saveTopicList = (list) => localStorage.setItem('topicList', JSON.stringify(list));
+
+    const getTopicData = (topicId) => {
+        const data = localStorage.getItem(topicId);
+        if (data) {
+            let parsedData = JSON.parse(data);
+            // Migração: Converte o formato antigo de imagens (apenas strings) para o novo (objetos com src, legenda, etc.)
+            if (parsedData.images && parsedData.images.length > 0 && typeof parsedData.images[0] === 'string') {
+                parsedData.images = parsedData.images.map(src => ({ src, caption: '', align: 'center' }));
+                saveTopicData(topicId, parsedData); // Salva os dados já convertidos
+            }
+            return parsedData;
+        }
+        // Se não houver dados salvos, retorna um conteúdo padrão para os tópicos iniciais
+        switch(topicId) {
+            case 'home': return { name: 'Início', text: `Bem-vindo! Este site é totalmente customizável. Use o botão "Gerenciar" para editar o conteúdo ou navegue pelos tópicos abaixo.`, images: [] };
+            case 'animais': return { name: 'Animais', text: `Os oceanos abrigam uma incrível diversidade de animais, desde os gigantes gentis como as baleias até os mestres da camuflagem como os polvos.`, images: [] };
+            case 'corais': return { name: 'Corais', text: `RECIFE DE CORAIS
+
+ O que são?
+Corais
+Corais são animais marinhos invertebrados, pertencentes ao filo Cnidaria.Vivem em colônias e constroem estruturas calcárias ao longo do tempo.
+
+Existem dois tipos principais:
+-Corais duros (hermatípicos): responsáveis pela formação dos recifes.
+-Corais moles (ahermatípicos): não formam recifes, mas ainda contribuem para o ecossistema.
+
+Recifes de Coral
+São formações subaquáticas feitas, principalmente, de corais duros.
+Crescem lentamente e podem levar milhares de anos para se formar.
+São encontrados em águas tropicais rasas, quentes e claras — geralmente entre os trópicos de Câncer e Capricórnio.
+
+ IMPORTÂNCIA dos Recifes 
+Biodiversidade: Abrigam cerca de 25% de toda a vida marinha, mesmo cobrindo menos de 1% do fundo oceânico.
+Proteção Costeira: Atuam como barreiras naturais, reduzindo a força das ondas e prevenindo erosões.
+Economia: Geram bilhões em turismo, pesca e pesquisa científica.
+
+Fonte de Recursos Medicinais: Muitos compostos para medicamentos vêm de organismos encontrados nesses ecossistemas.
+
+ Ameaças aos Recifes 
+Aquecimento global: provoca o branqueamento dos corais (bleaching), quando perdem suas algas simbióticas (zooxantelas) e ficam vulneráveis.
+Poluição: esgoto, plásticos, produtos químicos agrícolas.
+
+Pesca predatória e  o turismo.
+Acidificação dos oceanos: reduz a capacidade de calcificação dos corais.
+
+CURIOSIDADE
+A Grande Barreira de Coral, na Austrália, é o maior sistema de recifes do mundo, visível até do espaço!
+Corais têm uma relação simbiótica com algas microscópicas chamadas zooxantelas, que lhes fornecem energia por meio da fotossíntese.
+`, images: [] };
+
+            case 'baleia': return { 
+                name: 'Baleia', 
+                text: `🐋 Baleia
+As baleias-jubarte (Megaptera novaeangliae) são mamíferos marinhos fascinantes, conhecidos por seus saltos acrobáticos, cantos complexos e longas migrações. Aqui estão alguns pontos principais sobre elas:
+
+🐋 Características físicas
+Podem atingir até 16 metros de comprimento e pesar cerca de 30 a 40 toneladas.
+Têm nadadeiras peitorais muito longas, que podem medir até 5 metros — cerca de um terço do comprimento do corpo.
+A cor é geralmente preta com manchas brancas no ventre e nas nadadeiras.
+
+🌊 Comportamento
+São conhecidas por seus saltos fora d'água e batidas com a cauda e nadadeiras, comportamentos ainda não totalmente compreendidos (pode ser comunicação, corte ou remoção de parasitas).
+Os machos cantam canções longas e complexas durante a temporada de acasalamento. Cada população tem seu “dialeto”.
+🐟 Alimentação
+Alimentam-se principalmente de krill (pequenos crustáceos) e peixes pequenos.
+Usam uma técnica chamada rede de bolhas, na qual soltam bolhas em espiral para cercar o cardume e então se alimentam com a boca aberta.
+
+🗺️ Migração
+Fazem uma das maiores migrações do reino animal: passam o verão em águas frias (como a Antártida) se alimentando e migram para águas tropicais ou subtropicais no inverno para reprodução e nascimento dos filhotes.
+No Brasil, elas migram para a região de Abrolhos (Bahia) entre junho e novembro.
+
+👶 Reprodução
+A gestação dura cerca de 11 a 12 meses.
+Os filhotes nascem com cerca de 4 a 5 metros de comprimento e podem pesar até 1 tonelada.
+Mamam por quase um ano e crescem rapidamente nos primeiros meses.
+
+⚠️ Conservação
+Já foram intensamente caçadas no século XX, levando as populações à beira da extinção.
+Desde a proibição da caça comercial (pela moratória da Comissão Baleeira Internacional), os números estão se recuperando.
+Hoje são classificadas como pouco preocupantes pela IUCN, mas ainda enfrentam ameaças como:
+colisões com navios,
+poluição sonora submarina,
+emalhe em redes de pesca.
+`, 
+                images: [{src:'', caption:'Oceano', align:'center'}] 
+            };
+            case 'golfinho': return { 
+                name: 'Golfinho', 
+                text: `🐬 Golfinhos – Visão Geral
+🔬 Classificação
+Golfinhos são mamíferos marinhos da ordem Cetacea (a mesma das baleias), subordem Odontoceti (cetáceos com dentes).
+Existem mais de 40 espécies conhecidas, sendo o golfinho-nariz-de-garrafa (Tursiops truncatus) o mais conhecido.
+
+📏 Características físicas
+Tamanho varia entre espécies: de cerca de 1,5 metros a mais de 4 metros.
+Corpo hidrodinâmico, ideal para natação rápida.
+Possuem um bico alongado (em muitas espécies) e uma nadadeira dorsal proeminente.
+Respiram por um espiráculo (orifício no topo da cabeça).
+
+🧠 Inteligência
+São considerados um dos animais mais inteligentes do planeta.
+Demonstram comportamento complexo: uso de ferramentas, empatia, cooperação e até reconhecimento de si mesmos no espelho (autoconsciência).
+Possuem uma comunicação avançada, com sons, assobios e cliques únicos (como se fossem “nomes”).
+
+🐟 Alimentação
+Carnívoros, se alimentam de peixes, lulas e crustáceos.
+Caçam em grupo com técnicas colaborativas, como cercar cardumes ou empurrar peixes para a superfície.
+Usam ecolocalização (como um sonar natural) para localizar presas e obstáculos.
+
+🐬 Comportamento social
+Vivem em grupos chamados de cardumes ou bandos, que podem ter de algumas dezenas até centenas de indivíduos.
+São muito brincalhões: saltam fora d’água, surfam ondas e interagem com humanos em algumas regiões.
+Cuidam dos membros do grupo, inclusive protegendo feridos ou doentes.
+
+🐣 Reprodução
+A gestação varia de 10 a 17 meses, dependendo da espécie.
+Nasce um único filhote, que é amamentado por vários meses.
+As mães são muito cuidadosas e, às vezes, outras fêmeas ajudam a cuidar dos filhotes (como "tias").
+
+⚠️ Ameaças e conservação
+Captura acidental em redes de pesca é uma das principais causas de morte.
+Sofrem com poluição marinha, ruído submarino (que atrapalha a ecolocalização), caça (em alguns países) e turismo irresponsável.
+Algumas espécies estão ameaçadas, como o golfinho-do-rio-Yangtzé (praticamente extinto).
+
+🧭 Curiosidades
+Alguns golfinhos vivem em rios, como o boto-cor-de-rosa da Amazônia.
+São capazes de “desligar” um lado do cérebro por vez durante o sono — assim podem descansar e continuar respirando conscientemente.
+São usados em terapias assistidas com animais, embora esse uso seja controverso entre cientistas e defensores dos direitos dos animais.
+`, 
+                images: [{src:'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b', caption:'Mar aberto', align:'center'}] 
+            };
+            case 'tartaruga': return { 
+                name: 'Tartaruga Marinha', 
+                text: `🐢 Tartarugas – Visão Geral
+📚 Classificação
+Tartarugas pertencem à ordem Testudines.
+São répteis, como cobras, lagartos e crocodilos.
+Podem viver na terra, em água doce ou no mar.
+Terrestres: Jabutis.
+De água doce: Cágados.
+Marinhas: Tartarugas-marinhas (as maiores e mais conhecidas).
+🌊 Tartarugas Marinhas
+Existem 7 espécies de tartarugas marinhas no mundo, e todas estão ameaçadas de extinção:
+Tartaruga-verde (Chelonia mydas)
+Tartaruga-de-pente (Eretmochelys imbricata)
+Tartaruga-cabeçuda (Caretta caretta)
+Tartaruga-oliva (Lepidochelys olivacea)
+Tartaruga-de-kemp (Lepidochelys kempii)
+Tartaruga-de-couro (Dermochelys coriacea) — a maior de todas.
+Tartaruga-flatback (Natator depressus) — encontrada na Austrália.
+
+📏 Características físicas
+Têm um casco rígido que as protege de predadores. O casco é parte do esqueleto (não podem “sair” dele).
+Não possuem dentes, mas sim um bico córneo para cortar alimentos.
+Têm visão e olfato bem desenvolvidos, e as marinhas são ótimas nadadoras.
+
+🐣 Reprodução
+São ovíparas: cavam buracos na areia da praia e põem dezenas ou até 100 ovos por ninhada.
+Os filhotes nascem sozinhos e correm para o mar — muitos são predados no caminho.
+A temperatura da areia determina o sexo dos filhotes: mais quente = mais fêmeas.
+
+🍃 Alimentação
+Variam por espécie:
+Tartaruga-verde: herbívora (alga e capim-marinho).
+Tartaruga-de-pente: come esponjas, moluscos.
+Tartaruga-cabeçuda: crustáceos, moluscos de casca dura.
+Tartaruga-de-couro: gelatinosos como águas-vivas.
+
+🧭 Migração
+Fazem longas migrações oceânicas entre as áreas de alimentação e de reprodução (às vezes cruzando oceanos inteiros).
+Têm um tipo de "bússola magnética" natural para se orientar.
+
+⚠️ Ameaças às tartarugas
+As tartarugas, principalmente as marinhas, enfrentam muitas ameaças causadas pelos seres humanos:
+Plástico no oceano (confundem com alimento, como sacolas e águas-vivas).
+
+Pesca acidental (presas em redes).
+
+Poluição luminosa nas praias, que desorienta os filhotes.
+
+Caça ilegal (por carne, cascos e ovos).
+
+Mudanças climáticas, que afetam o sexo dos filhotes e os recifes de corais.
+
+🇧🇷 Tartarugas no Brasil
+O Brasil abriga 5 das 7 espécies de tartarugas marinhas. A organização Projeto TAMAR protege essas espécies e atua em diversas praias do país, como na Bahia, Sergipe, Espírito Santo e Santa Catarina.
+
+🐢 Curiosidades
+Podem viver mais de 100 anos (principalmente jabutis).
+
+Tartarugas marinhas sempre voltam à praia onde nasceram para pôr ovos — um instinto incrível chamado filopatria.
+
+Apesar de lentas na terra, muitas são rápidas e ágeis na água.
+
+Não têm cordas vocais, mas algumas espécies emitem sons.
+
+`, 
+                images: [{src:'https://images.unsplash.com/photo-1469474968028-56623f02e42e', caption:'Tartaruga', align:'center'}] 
+            };
+            case 'lagosta': return { 
+                name: 'Lagosta', 
+                text: `🦞 Lagostas – Visão Geral
+🔬 Classificação
+São crustáceos marinhos da ordem Decapoda (mesma de camarões e caranguejos).
+
+Pertencem à família Nephropidae (lagostas "verdadeiras").
+
+Existem também as chamadas lagostas espinhosas (como a do Brasil), que pertencem à família Palinuridae — não têm grandes garras.
+
+📏 Características físicas
+Corpo dividido em:
+
+Cefalotórax (cabeça + tórax),
+
+Abdômen (a parte que comemos).
+
+Têm dez patas (como o nome da ordem sugere).
+
+As lagostas do Atlântico Norte (ex: Homarus americanus) têm grandes garras — uma maior e forte, outra mais afiada.
+
+As lagostas espinhosas tropicais (ex: Panulirus argus) não têm garras, mas possuem antenas longas e espinhos protetores.
+
+🌊 Habitat
+Vivem em fundos rochosos, recifes ou tocas no fundo do mar, geralmente entre 4 e 100 metros de profundidade.
+
+Atuam como predadores noturnos.
+
+🍤 Alimentação
+São onívoras: comem moluscos, vermes, peixes mortos, ouriços e até outros crustáceos.
+
+Usam as garras ou mandíbulas para quebrar cascos e conchas (espécies com garras).
+
+🧠 Comportamento
+Solitárias e territoriais — protegem suas tocas de invasores.
+
+Têm um sistema social baseado em força e hierarquia.
+
+Fazem muda do exoesqueleto para crescer — processo chamado ecdise.
+
+🐣 Reprodução
+A fêmea libera os ovos fertilizados que ficam presos ao seu abdômen por semanas ou meses.
+
+Uma só fêmea pode carregar milhares de ovos.
+
+Após o nascimento, os filhotes são planctônicos (flutuam no mar) por semanas antes de se assentarem no fundo.
+
+🧭 Curiosidades
+Lagostas podem viver mais de 50 anos — algumas até mais de 100.
+
+Elas não param de crescer com a idade (mas o crescimento desacelera).
+
+Possuem um sistema circulatório aberto e sangue azul (rico em cobre, com hemocianina).
+
+Diz-se que podem ser “imortais biologicamente”, pois não mostram sinais típicos de envelhecimento — mas morrem por doenças, captura ou desgaste físico.
+
+🦞 Lagosta no Brasil
+A principal espécie capturada é a lagosta-vermelha (Panulirus argus) e a lagosta-verde (Panulirus laevicauda).
+
+Encontradas principalmente no Nordeste, como em Pernambuco, Ceará, Bahia e Rio Grande do Norte.
+
+A pesca da lagosta é regulamentada, pois a sobrepesca ameaça os estoques naturais.
+
+Existem períodos de defeso (proibição da pesca) para permitir a reprodução.
+
+⚠️ Ameaças
+Pesca predatória, como uso de redes e mergulho com compressor ilegal.
+
+Mudanças climáticas e poluição do oceano afetam seu habitat e reprodução.
+
+Mercado internacional e demanda por gastronomia de luxo também pressionam os estoques.
+
+🍽️ Gastronomia
+A lagosta é considerada um dos frutos do mar mais valorizados do mundo.
+
+O rabo (abdômen) é a parte mais consumida.
+
+É preparada grelhada, cozida, no vapor ou em pratos sofisticados como lagosta thermidor.
+
+No Brasil, é um produto nobre, especialmente em regiões costeiras e turísticas.
+
+`, 
+                images: [{src:'https://images.unsplash.com/photo-1553621042-f6e147245754', caption:'Lagosta', align:'center'}] 
+            };
+            case 'tubarao': return { 
+                name: 'Tubarão', 
+                text: `🦈 Tubarões – Visão Geral
+🔬 Classificação
+Pertencem à classe Chondrichthyes (peixes cartilaginosos), assim como as arraias.
+
+Existem mais de 500 espécies conhecidas.
+
+Estão presentes em todos os oceanos, desde águas rasas tropicais até profundezas abissais e regiões polares.
+
+📏 Características físicas
+Corpo feito de cartilagem (mais leve e flexível que osso).
+
+Têm 5 a 7 fendas branquiais (dependendo da espécie).
+
+Possuem dentes afiados em várias fileiras, que se renovam continuamente ao longo da vida.
+
+Sentidos extremamente aguçados:
+
+Olfato poderoso (detectam sangue a quilômetros de distância).
+
+Visão adaptada a diferentes níveis de luz.
+
+Ampolas de Lorenzini: sensores que captam campos elétricos de outros animais.
+
+🧠 Comportamento
+Não são apenas “máquinas de matar” — têm comportamento social complexo em algumas espécies.
+
+Muitos fazem migrações sazonais.
+
+Podem nadar por longas distâncias e raramente dormem como os humanos; em algumas espécies, precisam nadar constantemente para respirar.
+
+🍽️ Alimentação
+A dieta varia muito:
+
+Carnívoros: peixes, focas, crustáceos, lulas, aves marinhas.
+
+Planktívoros (como o tubarão-baleia): alimentam-se de plâncton, filtrando água.
+
+São predadores de topo, regulando populações e mantendo ecossistemas marinhos saudáveis.
+
+🐣 Reprodução
+Reproduzem-se lentamente: muitas espécies têm poucos filhotes e demoram anos para atingir a maturidade sexual.
+
+Tipos de reprodução:
+
+Ovíparos: botam ovos (ex: tubarão-cornudo).
+Vivíparos: filhotes se desenvolvem na mãe, como mamíferos (ex: tubarão-martelo).
+Ovovivíparos: ovos dentro da mãe, mas sem ligação placentária (ex: tubarão-branco).
+
+🌍 Espécies conhecidas
+Espécie	Características principais
+Tubarão-branco (Carcharodon carcharias)	Até 6 m, poderoso predador.
+Tubarão-martelo (Sphyrna spp.)	Cabeça em formato de "T" para visão ampla.
+Tubarão-tigre (Galeocerdo cuvier)	Onívoro, pode comer quase qualquer coisa.
+Tubarão-baleia (Rhincodon typus)	Maior peixe do mundo (até 12 m), filtrador.
+Tubarão-lixa (Ginglymostoma cirratum)	Comum no Brasil, mais tranquilo e noturno.
+⚠️ Ameaças aos tubarões
+Apesar da imagem de predadores, os tubarões estão ameaçados pelos humanos, não o contrário:
+
+Pesca predatória, especialmente para a prática cruel de finning (remoção das barbatanas).
+
+Captura acidental em redes de pesca.
+
+Demanda por carne e óleo de fígado.
+
+Destruição de habitats, como recifes e áreas costeiras.
+
+Muitas espécies estão em risco de extinção, segundo a IUCN.
+
+❌ Mitos comuns
+“Todos os tubarões atacam humanos”: FALSO. A maioria das espécies é inofensiva.
+
+Ataques são raríssimos e geralmente causados por confusão alimentar (ex: confundir surfistas com presas).
+
+Em média, os humanos matam cerca de 100 milhões de tubarões por ano, enquanto os tubarões matam menos de 10 pessoas por ano.
+
+🇧🇷 Tubarões no Brasil
+Diversas espécies habitam a costa brasileira, incluindo o tubarão-lixa, tubarão-martelo e tubarão-cabeça-chata.
+
+Algumas áreas do Nordeste, como Recife, já tiveram registros de incidentes com tubarões — geralmente ligados a alterações ambientais causadas por portos e pesca excessiva.
+
+🧠 Curiosidades
+Tubarões existem há mais de 400 milhões de anos — mais antigos que os dinossauros.
+
+Alguns podem brilhar no escuro (bioluminescência).
+
+Têm um dos sistemas sensoriais mais avançados do reino animal.
+
+Podem regenerar dentes indefinidamente ao longo da vida.
+
+`, 
+                images: [{src:'https://images.unsplash.com/photo-1544551763-7ef0369cbd9e', caption:'Tubarão', align:'center'}] 
+            };
+            case 'peixes': return { 
+                name: 'Peixes Marinhos', 
+                text: `🌊 Peixes de Água Salgada
+🔬 O que são?
+Vivem em ambientes marinhos (oceanos e mares).
+
+Existem milhares de espécies, desde pequenos peixes recifais até grandes predadores oceânicos.
+
+📌 Exemplos comuns:
+Nome comum	Nome científico	Características principais
+Atum	Thunnus spp.	Rápido, migrador, carne valorizada
+Sardinha	Sardinella spp.	Forma grandes cardumes, muito pescada
+Garoupa	Epinephelus spp.	Carnívora, associada a recifes
+Anchova	Pomatomus saltatrix	Predadora costeira, muito esportiva
+Cavalo-marinho	Hippocampus spp.	Peixe curioso, o macho "engravida"
+Peixe-palhaço	Amphiprioninae	Vive em anêmonas, famoso pelo filme “Nemo”
+⚠️ Ameaças:
+Sobrepesca, destruição de habitats (como recifes de corais), mudanças climáticas e poluição.
+nos, de pequenos recifais a grandes migradores como atuns. Importantes para alimentação humana e equilíbrio ecológico.`, 
+                images: [{src:'https://images.unsplash.com/photo-1535909339361-9b5b5700be44', caption:'Cardume', align:'center'}] 
+            };
+            case 'crustaceos': return { 
+                name: 'Crustáceos', 
+                text: `🦐 Crustáceos
+🔬 O que são?
+Animais invertebrados com exoesqueleto, geralmente de corpo segmentado e várias patas.
+
+A maioria vive na água salgada, mas há espécies de água doce e terrestres.
+
+📌 Exemplos principais:
+Nome comum	Nome científico	Características principais
+Camarão	Litopenaeus spp., outros	Muito consumido, vive em águas rasas
+Lagosta	Panulirus spp.	Crustáceo espinhoso, carne nobre
+Siri	Callinectes spp.	Caranguejo de água salgada, comestível
+Caranguejo-uçá	Ucides cordatus	Vive no mangue, importante na cadeia alimentar
+Tatuzinho-do-mar	Ligia oceanica	Vive entre pedras no litoral, parente terrestre do tatu-bola
+⚠️ Ameaças:
+Pesca predatória, destruição de manguezais, poluição e aquecimento dos oceanos.
+rtebrados com exoesqueleto (camarões, caranguejos, siris e lagostas). Fundamentais nos ecossistemas costeiros e na pesca. Ameaças: poluição e sobrepesca.`, 
+                images: [{src:'https://images.unsplash.com/photo-1519074002996-a69e7ac46a42', caption:'Caranguejo', align:'center'}] 
+            };
+            case 'moluscos': return { 
+                name: 'Moluscos', 
+                text: `🐚  Moluscos
+🔬 O que são?
+Invertebrados de corpo mole, alguns com concha calcária externa.
+
+Podem ser marinhos, de água doce ou terrestres.
+
+Muitos têm grande importância ecológica e econômica.
+
+📌 Exemplos principais:
+Nome comum	Nome científico	Características principais
+Polvo	Octopus spp.	Inteligente, braços com ventosas, lança tinta
+Lula	Loligo spp.	Ágil, nada por jato d’água, muito pescada
+Marisco/Mexilhão	Mytilus spp.	Vive fixo em rochas, filtra água
+Ostra	Crassostrea spp.	Produz pérolas e é muito apreciada na culinária
+Nautilus	Nautilus pompilius	Molusco com concha espiral, considerado “fóssil vivo”
+⚠️ Ameaças:
+Acidificação dos oceanos (dificulta a formação de conchas), coleta excessiva, poluição e perda de habitat.
+
+🍽️ Importância para os humanos
+Alimentação: São fonte rica de proteína, vitaminas e minerais.
+
+Economia: Importantes para a pesca artesanal e industrial.
+
+Ecossistemas:
+
+Peixes regulam populações e mantêm o equilíbrio marinho.
+
+Crustáceos limpam o fundo e servem de alimento para outros animais.
+
+Moluscos filtram a água e estabilizam habitats como recifes e bancos de areia.
+
+🌎 No Brasil
+O litoral brasileiro abriga uma enorme biodiversidade desses grupos.
+
+Espécies como camarão-rosa, lagosta-vermelha, polvo, lula e garoupa são muito valorizadas.
+
+Manguezais, estuários e recifes de coral são áreas críticas para a reprodução e alimentação desses animais.
+
+Se quiser, posso montar um guia mais detalhado sobre:
+
+Espécies comestíveis e como identificá-las,
+
+Métodos sustentáveis de pesca,
+
+Curiosidades biológicas (como inteligência dos polvos),
+
+Ou até receitas culinárias com frutos do mar.
+as e mariscos. Muitos filtram água e sustentam cadeias alimentares; outros são altamente inteligentes (polvos). Sofrem com acidificação e coleta excessiva.`, 
+                images: [{src:'https://images.unsplash.com/photo-1505738452392-0f035b68e5f2', caption:'Polvo', align:'center'}] 
+            };
+
+ case 'tubarão': return { name: 'tubarão', text: `🦈 Tubarões – Visão Geral
+🔬 Classificação
+Pertencem à classe Chondrichthyes (peixes cartilaginosos), assim como as arraias.
+
+Existem mais de 500 espécies conhecidas.
+
+Estão presentes em todos os oceanos, desde águas rasas tropicais até profundezas abissais e regiões polares.
+
+📏 Características físicas
+Corpo feito de cartilagem (mais leve e flexível que osso).
+
+Têm 5 a 7 fendas branquiais (dependendo da espécie).
+
+Possuem dentes afiados em várias fileiras, que se renovam continuamente ao longo da vida.
+
+Sentidos extremamente aguçados:
+
+Olfato poderoso (detectam sangue a quilômetros de distância).
+
+Visão adaptada a diferentes níveis de luz.
+
+Ampolas de Lorenzini: sensores que captam campos elétricos de outros animais.
+
+🧠 Comportamento
+Não são apenas “máquinas de matar” — têm comportamento social complexo em algumas espécies.
+
+Muitos fazem migrações sazonais.
+
+Podem nadar por longas distâncias e raramente dormem como os humanos; em algumas espécies, precisam nadar constantemente para respirar.
+
+🍽️ Alimentação
+A dieta varia muito:
+
+Carnívoros: peixes, focas, crustáceos, lulas, aves marinhas.
+
+Planktívoros (como o tubarão-baleia): alimentam-se de plâncton, filtrando água.
+
+São predadores de topo, regulando populações e mantendo ecossistemas marinhos saudáveis.
+
+🐣 Reprodução
+Reproduzem-se lentamente: muitas espécies têm poucos filhotes e demoram anos para atingir a maturidade sexual.
+
+Tipos de reprodução:
+
+Ovíparos: botam ovos (ex: tubarão-cornudo).
+Vivíparos: filhotes se desenvolvem na mãe, como mamíferos (ex: tubarão-martelo).
+Ovovivíparos: ovos dentro da mãe, mas sem ligação placentária (ex: tubarão-branco).
+
+🌍 Espécies conhecidas
+Espécie	Características principais
+Tubarão-branco (Carcharodon carcharias)	Até 6 m, poderoso predador.
+Tubarão-martelo (Sphyrna spp.)	Cabeça em formato de "T" para visão ampla.
+Tubarão-tigre (Galeocerdo cuvier)	Onívoro, pode comer quase qualquer coisa.
+Tubarão-baleia (Rhincodon typus)	Maior peixe do mundo (até 12 m), filtrador.
+Tubarão-lixa (Ginglymostoma cirratum)	Comum no Brasil, mais tranquilo e noturno.
+⚠️ Ameaças aos tubarões
+Apesar da imagem de predadores, os tubarões estão ameaçados pelos humanos, não o contrário:
+
+Pesca predatória, especialmente para a prática cruel de finning (remoção das barbatanas).
+
+Captura acidental em redes de pesca.
+
+Demanda por carne e óleo de fígado.
+
+Destruição de habitats, como recifes e áreas costeiras.
+
+Muitas espécies estão em risco de extinção, segundo a IUCN.
+
+❌ Mitos comuns
+“Todos os tubarões atacam humanos”: FALSO. A maioria das espécies é inofensiva.
+
+Ataques são raríssimos e geralmente causados por confusão alimentar (ex: confundir surfistas com presas).
+
+Em média, os humanos matam cerca de 100 milhões de tubarões por ano, enquanto os tubarões matam menos de 10 pessoas por ano.
+
+🇧🇷 Tubarões no Brasil
+Diversas espécies habitam a costa brasileira, incluindo o tubarão-lixa, tubarão-martelo e tubarão-cabeça-chata.
+
+Algumas áreas do Nordeste, como Recife, já tiveram registros de incidentes com tubarões — geralmente ligados a alterações ambientais causadas por portos e pesca excessiva.
+
+🧠 Curiosidades
+Tubarões existem há mais de 400 milhões de anos — mais antigos que os dinossauros.
+
+Alguns podem brilhar no escuro (bioluminescência).
+
+Têm um dos sistemas sensoriais mais avançados do reino animal.
+
+Podem regenerar dentes indefinidamente ao longo da vida.
+
+Se quiser, posso te mostrar espécies específicas com fotos, mapas de ataques (educativos), dados do Brasil ou até curiosidades científicas sobre comportamento e comunicação dos tubarões. Tem algo que você queira saber mais?
+`, images: [] };
+
+            default: return { name: 'Novo Tópico', text: `Conteúdo deste novo tópico.`, images: [] };
+        }
+    };
+    const saveTopicData = (topicId, data) => localStorage.setItem(topicId, JSON.stringify(data));
+
+    // 3. FUNÇÕES DE RENDERIZAÇÃO
+    // Funções responsáveis por construir ou atualizar a interface do usuário na tela.
+
+    /** Aplica as configurações globais do site (título e fundo) */
+    const applySiteSettings = () => {
+        const settings = getSiteSettings();
+        document.title = settings.title;
+        dom.siteMainTitle.innerText = settings.title;
+        dom.backgroundContainer.style.backgroundImage = settings.background;
+        dom.siteTitleInput.value = settings.title;
+        dom.backgroundUrlInput.value = (settings.background === defaultBackground) ? '' : settings.background.slice(5, -2);
+    };
+
+    /** Reconstrói toda a navegação e seções de conteúdo a partir dos dados salvos */
+    const renderSite = () => {
+        const topicList = getTopicList();
+        dom.mainNav.innerHTML = '';
+        dom.contentWrapper.querySelectorAll('.dynamic-section').forEach(s => s.remove());
+
+        // Cria os elementos HTML para cada tópico dinâmico
+        topicList.forEach(topicId => {
+            if (!document.getElementById(`${topicId}-content`)) {
+                const section = document.createElement('section');
+                section.className = `content-section dynamic-section`;
+                section.id = `${topicId}-content`;
+                section.style.display = 'none';
+                section.innerHTML = `<h2></h2><p id="p-${topicId}"></p><div class="image-gallery" id="gallery-${topicId}"></div>`;
+                dom.contentWrapper.insertBefore(section, dom.manageContentSection);
+            }
+        });
+        
+        // Preenche a navegação e o conteúdo das seções
+        topicList.forEach(topicId => {
+            const topicData = getTopicData(topicId);
+            const navButton = document.createElement('button');
+            navButton.className = 'nav-button';
+            navButton.dataset.content = topicId;
+            navButton.textContent = topicData.name;
+            dom.mainNav.appendChild(navButton);
+            
+            document.querySelector(`#${topicId}-content h2`).innerText = topicData.name;
+            document.getElementById(`p-${topicId}`).innerText = topicData.text;
+            renderTopicImages(topicId, topicData.images);
+        });
+        
+        renderHomeLinks(); // Adiciona os links dinâmicos na página inicial
+
+        // Adiciona o botão "Gerenciar" ao final da navegação
+        const manageButton = document.createElement('button');
+        manageButton.className = 'nav-button';
+        manageButton.dataset.content = 'gerenciar';
+        manageButton.textContent = 'Gerenciar';
+        dom.mainNav.appendChild(manageButton);
+
+        bindNavEvents(); // Re-associa os eventos de clique aos botões
+        populateManagementPanels(); // Atualiza os painéis da área de gerenciamento
+    };
+
+    /** Cria e insere os links de navegação rápida na página inicial */
+    const renderHomeLinks = () => {
+        const homeParagraph = document.getElementById('p-home');
+        if (!homeParagraph) return;
+
+        const otherTopics = getTopicList().filter(id => id !== 'home');
+        
+        const existingText = `<p>${getTopicData('home').text}</p>`;
+        let linksHTML = '';
+
+        if (otherTopics.length > 0) {
+            linksHTML = `<h4>Navegue pelos tópicos:</h4><div class="home-links-container">`;
+            otherTopics.forEach(id => {
+                linksHTML += `<a href="#" class="home-topic-link" data-target="${id}">${getTopicData(id).name}</a>`;
+            });
+            linksHTML += '</div>';
+        }
+        
+        homeParagraph.innerHTML = existingText + linksHTML;
+
+        // Adiciona os eventos de clique aos links recém-criados
+        homeParagraph.querySelectorAll('.home-topic-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection(e.currentTarget.dataset.target);
+            });
+        });
+    };
+
+    /** Renderiza a galeria de imagens para um tópico específico */
+    const renderTopicImages = (topicId, images) => {
+        const gallery = document.getElementById(`gallery-${topicId}`);
+        if (!gallery) return;
+        gallery.innerHTML = '';
+        images.forEach((imgData, index) => {
+            const figure = document.createElement('figure');
+            figure.className = `img-align-${imgData.align}`; // Classe para alinhamento (left, center, right)
+            figure.innerHTML = `
+                <img src="${imgData.src}" alt="${imgData.caption || ''}">
+                ${imgData.caption ? `<figcaption>${imgData.caption}</figcaption>` : ''}
+                <button class="remove-btn" data-index="${index}"><i class="fa-solid fa-trash-can"></i></button>`;
+            gallery.appendChild(figure);
+        });
+
+        // Adiciona evento para os botões de remover imagem
+        gallery.querySelectorAll('.remove-btn').forEach(btn => btn.addEventListener('click', () => {
+            const data = getTopicData(topicId);
+            data.images.splice(btn.dataset.index, 1); // Remove a imagem pelo seu índice
+            saveTopicData(topicId, data);
+            renderTopicImages(topicId, data.images); // Re-renderiza a galeria
+            showStatus('Imagem removida!');
+        }));
+    };
+
+    // 4. FUNÇÕES DE LÓGICA E AÇÕES DO USUÁRIO
+
+    /** Associa o evento de clique a todos os botões de navegação */
+    const bindNavEvents = () => {
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', () => showSection(button.dataset.content));
+        });
+    };
+
+    /** Exibe uma seção de conteúdo e esconde as outras */
+    const showSection = (sectionId) => {
+        if (!sectionId || !document.getElementById(`${sectionId}-content`)) return;
+        
+        document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
+        document.getElementById(`${sectionId}-content`).style.display = 'block';
+        
+        document.querySelectorAll('.nav-button').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.content === sectionId);
+        });
+    };
+
+    /** Preenche os seletores e listas no painel de gerenciamento */
+    const populateManagementPanels = () => {
+        const topicList = getTopicList();
+        dom.topicSelector.innerHTML = '';
+        dom.existingTopicsList.innerHTML = '';
+        
+        topicList.forEach(topicId => {
+            const topicName = getTopicData(topicId).name;
+            // Adiciona ao seletor de edição
+            dom.topicSelector.add(new Option(topicName, topicId));
+            
+            // Adiciona à lista de tópicos para gerenciar (renomear/deletar)
+            const item = document.createElement('div');
+            item.className = 'topic-item';
+            item.innerHTML = `
+                <span>${topicName}</span>
+                <div class="topic-item-actions">
+                    <button class="edit-btn" data-id="${topicId}">Renomear</button>
+                    ${topicId !== 'home' ? `<button class="delete-btn" data-id="${topicId}">Deletar</button>` : ''}
+                </div>`;
+            dom.existingTopicsList.appendChild(item);
+        });
+        
+        // Associa eventos aos botões de renomear e deletar
+        dom.existingTopicsList.querySelectorAll('.edit-btn').forEach(btn => btn.addEventListener('click', () => openRenameModal(btn.dataset.id)));
+        dom.existingTopicsList.querySelectorAll('.delete-btn').forEach(btn => btn.addEventListener('click', () => deleteTopic(btn.dataset.id)));
+        
+        updateEditorPanel(); // Atualiza o editor de texto com o tópico selecionado
+    };
+
+    /** Atualiza o editor de texto com o conteúdo do tópico selecionado */
+    const updateEditorPanel = () => {
+        const selectedTopicId = dom.topicSelector.value;
+        dom.contentEditor.value = getTopicData(selectedTopicId)?.text || '';
+    };
+
+    /** Exibe uma mensagem de status temporária para o usuário */
+    const showStatus = (message) => {
+        dom.statusMessage.innerText = message;
+        setTimeout(() => { dom.statusMessage.innerText = ''; }, 3000);
+    };
+    
+    /** Cria um novo tópico */
+    const createTopic = () => {
+        const newName = dom.newTopicNameInput.value.trim();
+        if (!newName) return alert('O nome do tópico não pode estar vazio.');
+        
+        const newId = newName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''); // Cria um ID seguro
+        const topicList = getTopicList();
+        if (topicList.includes(newId)) return alert('Um tópico com ID similar já existe.');
+        
+        topicList.push(newId);
+        saveTopicList(topicList);
+        saveTopicData(newId, { name: newName, text: `Conteúdo sobre ${newName}.`, images: [] });
+        
+        dom.newTopicNameInput.value = '';
+        renderSite();
+        showStatus('Tópico criado!');
+    };
+
+    /** Deleta um tópico existente */
+    const deleteTopic = (topicId) => {
+        if (!confirm(`Tem certeza que deseja deletar este tópico?`)) return;
+        
+        saveTopicList(getTopicList().filter(id => id !== topicId));
+        localStorage.removeItem(topicId); // Remove os dados do tópico
+        
+        renderSite();
+        showStatus('Tópico deletado!');
+        showSection('home'); // Volta para a página inicial
+    };
+
+    /** Abre o modal para renomear um tópico */
+    const openRenameModal = (topicId) => {
+        currentTopicToRename = topicId;
+        dom.renameInput.value = getTopicData(topicId).name;
+        dom.renameModal.showModal();
+    };
+
+    /** Confirma a ação de renomear */
+    const confirmRename = () => {
+        const newName = dom.renameInput.value.trim();
+        if (!newName || !currentTopicToRename) return;
+        
+        const data = getTopicData(currentTopicToRename);
+        data.name = newName;
+        saveTopicData(currentTopicToRename, data);
+        
+        dom.renameModal.close();
+        renderSite();
+        showStatus('Tópico renomeado!');
+    };
+    
+    // 5. EVENT LISTENERS (Conectando tudo)
+    // Conecta as ações do usuário (cliques, mudanças) com as funções de lógica.
+
+    // Configurações do Site
+    dom.saveSiteTitleBtn.addEventListener('click', () => {
+        const s = getSiteSettings();
+        s.title = dom.siteTitleInput.value || 'Wiki Marinha';
+        saveSiteSettings(s);
+        applySiteSettings();
+        showStatus('Título atualizado!');
+    });
+    dom.saveBackgroundBtn.addEventListener('click', () => {
+        const s = getSiteSettings();
+        const url = dom.backgroundUrlInput.value.trim();
+        if (url) { 
+            s.background = `url("${url}")`;
+            saveSiteSettings(s);
+            applySiteSettings();
+            showStatus('Fundo atualizado!');
+        }
+    });
+    dom.resetBackgroundBtn.addEventListener('click', () => {
+        const s = getSiteSettings();
+        s.background = defaultBackground;
+        saveSiteSettings(s);
+        applySiteSettings();
+        showStatus('Fundo restaurado!');
+    });
+
+    // Gerenciamento de Tópicos
+    dom.createTopicButton.addEventListener('click', createTopic);
+    dom.topicSelector.addEventListener('change', updateEditorPanel);
+    dom.cancelRenameBtn.addEventListener('click', () => dom.renameModal.close());
+    dom.confirmRenameBtn.addEventListener('click', confirmRename);
+
+    // Edição de Conteúdo
+    dom.saveTextButton.addEventListener('click', () => {
+        const id = dom.topicSelector.value;
+        const data = getTopicData(id);
+        data.text = dom.contentEditor.value;
+        saveTopicData(id, data);
+        // Atualiza o texto na página em tempo real
+        document.getElementById(`p-${id}`).innerText = data.text;
+        renderHomeLinks(); // Atualiza os links caso o texto da home seja alterado
+        showStatus('Texto salvo!');
+    });
+
+    // Adicionar Imagem
+    dom.addImageButton.addEventListener('click', () => {
+        const id = dom.topicSelector.value;
+        const file = dom.imageUploader.files[0];
+        if (!file || !id) return showStatus('Selecione um tópico e um arquivo.');
+        
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const data = getTopicData(id);
+            data.images.push({ 
+                src: e.target.result, 
+                caption: dom.imageCaptionInput.value.trim(), 
+                align: dom.imageAlignSelect.value 
+            });
+            saveTopicData(id, data);
+            renderTopicImages(id, data.images); // Atualiza a galeria em tempo real
+            showStatus('Imagem adicionada!');
+            // Limpa os campos do formulário
+            dom.imageUploader.value = '';
+            dom.imageCaptionInput.value = '';
+        };
+        reader.readAsDataURL(file); // Converte a imagem para Base64
+    });
+
+    // 6. INICIALIZAÇÃO
+    // Ponto de partida que executa o código quando o documento está pronto.
+    const initializeSite = () => {
+
+        // Garante que tópicos padrão existam no 'topicList' sem apagar os já criados pelo usuário
+        try {
+            const defaults = ['home','animais','corais','baleia','golfinho','tartaruga','lagosta','tubarao','peixes','crustaceos','moluscos'];
+            const current = JSON.parse(localStorage.getItem('topicList')) || [];
+            const merged = Array.from(new Set([...current, ...defaults]));
+            if (merged.length !== current.length) {
+                localStorage.setItem('topicList', JSON.stringify(merged));
+            }
+        } catch(e) { console.warn('Não foi possível sincronizar tópicos padrão:', e); }
+
+        applySiteSettings();
+        renderSite();
+        showSection('home'); // Garante que a seção inicial seja exibida
+    };
+
+    initializeSite();
+});
+</script>
+</body>
+</html>
